@@ -3,7 +3,7 @@ import axios from "../axios/axios"
 const AuthenticationService = {
 
     login: (username,password)=> {
-        console.log("axios login");
+        console.log("AuthenticationService: axios login");
         let userdto = JSON.stringify({"username":username,"password":password});
 
         return axios.post("http://localhost:8080/api/users/login",userdto, {
@@ -14,7 +14,7 @@ const AuthenticationService = {
         });
     },
     register: (username,password) => {
-        console.log("axios register");
+        console.log("AuthenticationService: axios register");
         let userdto = JSON.stringify({"username":username,"password":password});
 
         return axios.post("http://localhost:8080/api/users/register",userdto, {
@@ -25,7 +25,7 @@ const AuthenticationService = {
         });
     },
     fetchKeyWithId: (JWT,keyId) => {
-        console.log("axios fetchKeyWithId");
+        console.log("AuthenticationService: axios fetchKeyWithId");
         console.log(keyId);
         return axios.get(`http://localhost:8080/api/users/fetch?keyId=${keyId}`, {
             headers: {
@@ -36,7 +36,7 @@ const AuthenticationService = {
         });
     },
     fetchAllKeyIdsForUser: (JWT) => {
-        console.log("axios fetchAllKeyIdsForUser");
+        console.log("AuthenticationService: axios fetchAllKeyIdsForUser");
         return axios.get(`http://localhost:8080/api/users/fetchall`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',

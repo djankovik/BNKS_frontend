@@ -35,13 +35,12 @@ const LogIn = (props) => {
     };
 
     const successHandler = (data) => {
-        console.log("success handler");
+        console.log("LogIn: success handler");
         console.log(data);
         setToRedirect(true);
     };
     const errorHandler = (error) => {
-        console.log("error handler");
-        console.log(error);
+        console.log("LogIn: error handler - "+error.message);
         setErrorMessage(() => ({
             error: error.message
         }));

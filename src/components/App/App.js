@@ -25,11 +25,11 @@ class App extends Component{
   }
 
   componentDidMount() {
-    console.log('componentDidMount')
+    console.log('App: componentDidMount')
   }
 
   login = (username,password,responseHandler,errorHandler) => {
-    console.log("login");
+    console.log("App: login");
     AuthenticationService.login(username,password)
         .then(res => {
           this.setState({
@@ -59,6 +59,7 @@ class App extends Component{
         });
   };
   register = (username,password,responseHandler,errorHandler) => {
+      console.log('App: register');
     AuthenticationService.register(username,password)
         .then(res => {
           this.setState({
@@ -88,6 +89,7 @@ class App extends Component{
         });
   };
   logout = () => {
+      console.log('App: logout');
       this.setState({
           username: "",
           JWT: "",
@@ -98,6 +100,7 @@ class App extends Component{
       });
   };
   fetchKeyIds = (JWT) => {
+      console.log('App: fetchKeyIds');
     AuthenticationService.fetchAllKeyIdsForUser(this.state.JWT)
         .then(res => {
           console.log(res.data);
@@ -118,10 +121,21 @@ class App extends Component{
         })
   };
   fetchKeyWithId = (keyId,JWT) => {
-
+      console.log('App: fetchKeyWithId');
+      AuthenticationService.fetchKeyWithId(keyId,this.state.JWT)
+      .then(res => {
+          console.log(res.data);
+          this.setState({
+              "secretKey":res.data
+          });
+      })
+          .catch(error => {
+              console.log(error)
+          })
   };
 
   loadBids = () => {
+      console.log('App: loadBids');
     AuctionsService.getAllBidsForUser(this.state.JWT)
         .then(res => {
           console.log(res);
@@ -135,6 +149,7 @@ class App extends Component{
   };
 
     loadAuctions = () => {
+        console.log('App: loadAuctions');
     AuctionsService.getAllAuctions(this.state.JWT)
         .then(res => {
           console.log(res);
@@ -147,6 +162,7 @@ class App extends Component{
         });
   };
   placeBid = (bid,successHandler,errorHandler) => {
+      console.log('App: placeBid');
       let bidDTO = {};
       let bidamount = bid["bid_amount"].toString();
       if(!bidamount.includes("."))

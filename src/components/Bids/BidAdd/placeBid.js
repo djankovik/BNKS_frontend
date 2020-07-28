@@ -57,11 +57,12 @@ const PlaceBid = (props) => {
         setIsInputValid(false);
     };
     const successHandler = (res)=>{
-      console.log("success handler");
+      console.log("PlaceBid: success handler");
       setToRedirect(true)
     };
     const errorHandler = (error) => {
-        console.log("error handler");
+        console.log("PlaceBid: error handler -"+error.message);
+
         console.log(error);
         setIsInputValid(false);
         setErrorMessage(() => ({

@@ -35,13 +35,12 @@ const Register = (props) => {
     };
 
     const successHandler = (data) => {
-        console.log("success handler");
+        console.log("Register: success handler");
         console.log(data);
         setToRedirect(true);
     };
     const errorHandler = (error) => {
-        console.log("error handler");
-        console.log(error);
+        console.log("Register: error handler");
         setErrorMessage(() => ({
             error: error.message
         }));
@@ -78,7 +77,7 @@ const Register = (props) => {
                                 <input type="password" id="password" name="password" className="form-control" onChange={handleInputChange}/>
                             </div>
                             <hr/>
-                            <button className="btn bg-info text-white btn-rounded btn-block" type="submit"><h5>Log in</h5></button>
+                            <button className="btn bg-info text-white btn-rounded btn-block" type="submit"><h5>Register</h5></button>
                         </form>
                     </div>
                     <div className="card-footer"><a href="#" onClick={() => history.push('login')}>Log in instead?</a> </div>
