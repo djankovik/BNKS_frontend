@@ -82,6 +82,7 @@ const LogIn = (props) => {
                     </div>
                     <div className="card-footer"><a href="#" onClick={() => history.push('register')}>Register instead?</a> </div>
                 </div>
+                <hr/>
                 <div>
                     {errorView}
                 </div>
