@@ -2,9 +2,10 @@ import axios from "../axios/axios"
 import CryptoJS from "crypto-js/crypto-js"
 const AuctionsService = {
 
+    
     getAllAuctions: (JWT)=> {
         console.log("AuctionsService: axios getAllAuctions");
-        return axios.get("http://localhost:8080/api/auction/auctions", {
+        return axios.get("https://localhost:8443/api/auction/auctions", {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
@@ -14,7 +15,7 @@ const AuctionsService = {
     },
     getAllBidsForUser: (JWT)=> {
         console.log("AuctionsService: axios getAllBidsForUser");
-        return axios.get("http://localhost:8080/api/auction/bids", {
+        return axios.get("https://localhost:8443/api/auction/bids", {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
@@ -35,7 +36,7 @@ const AuctionsService = {
         console.log('\talgorithm: METHOD+PATH+TIMESTAMP+BODY');
         console.log('\tkeyid: '+keyId);
         console.log('\tsignature: '+signature64.toString());
-        return axios.post("http://localhost:8080/api/auction/place_bid",bid_json, {
+        return axios.post("https://localhost:8443/api/auction/place_bid",bid_json, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',

@@ -73,7 +73,7 @@ const PlaceBid = (props) => {
     let errorView = <div/>;
     if (errorMessage.error !== "") {
         errorView = (
-            <div className="row">
+            <div className="row w-100">
                 <div className="alert alert-danger m-auto" role="alert">
                     <h5>An error has occured</h5>
                     {errorMessage.error}
@@ -88,6 +88,7 @@ const PlaceBid = (props) => {
     return (
         <div>
             {props.authenticated &&
+                <div>
             <div className="row">
                 <form className="card m-auto col-8 offset-2" onSubmit={onFormSubmit}>
                     <h4 className="text-upper text-left p-4">Place Bid</h4>
@@ -131,8 +132,12 @@ const PlaceBid = (props) => {
                         </div>
                     </div>
                 </form>
-                {errorView}
             </div>
+                    <hr/>
+                    <div>
+                        {errorView}
+                    </div>
+                </div>
             }
                 { !props.authenticated &&
                 <div className="alert alert-danger alert alert-danger m-auto d-block">

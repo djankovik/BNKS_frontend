@@ -175,6 +175,7 @@ class App extends Component{
     let auctionsids = this.state.auctions.map(x => x.auction_id);
     if(!auctionsids.some(x => x === bidDTO.auction_id)){
         console.log("No such auction id!");
+        errorHandler({message: bid["auction_id"]+' is not a valid auction id!'});
         return;
     }
     if(this.state.keyId < 0 || this.state.secretKey.length === 0) {

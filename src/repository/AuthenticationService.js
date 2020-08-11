@@ -6,7 +6,7 @@ const AuthenticationService = {
         console.log("AuthenticationService: axios login");
         let userdto = JSON.stringify({"username":username,"password":password});
 
-        return axios.post("http://localhost:8080/api/users/login",userdto, {
+        return axios.post("https://localhost:8443/api/users/login",userdto, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ const AuthenticationService = {
         console.log("AuthenticationService: axios register");
         let userdto = JSON.stringify({"username":username,"password":password});
 
-        return axios.post("http://localhost:8080/api/users/register",userdto, {
+        return axios.post("https://localhost:8443/api/users/register",userdto, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ const AuthenticationService = {
     fetchKeyWithId: (JWT,keyId) => {
         console.log("AuthenticationService: axios fetchKeyWithId");
         console.log(keyId);
-        return axios.get(`http://localhost:8080/api/users/fetch?keyId=${keyId}`, {
+        return axios.get(`https://localhost:8443/api/users/fetch?keyId=${keyId}`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const AuthenticationService = {
     },
     fetchAllKeyIdsForUser: (JWT) => {
         console.log("AuthenticationService: axios fetchAllKeyIdsForUser");
-        return axios.get(`http://localhost:8080/api/users/fetchall`, {
+        return axios.get(`https://localhost:8443/api/users/fetchall`, {
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
